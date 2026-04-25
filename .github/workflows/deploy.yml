@@ -29,7 +29,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1 # Cambia esto si tu bucket está en otra región
+          aws-region: us-east-2 # Cambiado a Ohio que es donde está tu consola
 
       - name: Deploy to S3
         run: |
