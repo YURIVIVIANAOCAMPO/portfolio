@@ -1,21 +1,19 @@
-# Stage 1: Build
+# --- STAGE 1: Build ---
 FROM node:20-alpine AS builder
 WORKDIR /app
+
+# Instalamos dependencias primero para aprovechar el cache de Docker
 COPY package*.json ./
 RUN npm install
+
+# Copiamos el resto del código y construimos el sitio estático
 COPY . .
 RUN npm run build
 
-# Para despliegue estático en S3, los archivos estarán en /app/out
-# Si quieres ejecutarlo como servidor Docker normal (ej: en EC2 o App Runner):
-FROM node:20-alpine AS runner
+# --- STAGE 2: Export ---
+# Esta etapa es solo para que sepas dónde están los archivos.
+# Al final del proceso, los archivos estarán en la carpeta /app/out del contenedor.
+FROM alpine:latest AS exporter
 WORKDIR /app
-ENV NODE_ENV production
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/out ./out
-
-EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["cp", "-r", "./out", "/target"]
