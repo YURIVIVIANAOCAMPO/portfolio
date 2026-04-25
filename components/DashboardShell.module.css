@@ -54,9 +54,15 @@
   letter-spacing: 0.1rem;
 }
 
+.navSpacer {
+  flex: 1;
+}
+
 .desktopNav {
   display: flex;
+  justify-content: center;
   gap: 1rem;
+  flex: 2; /* Give more space to the menu area */
 }
 
 .navLink {
@@ -87,7 +93,9 @@
 .rightActions {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 1.5rem;
+  flex: 1;
 }
 
 .mainContent {

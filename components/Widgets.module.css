@@ -154,19 +154,28 @@
 
 .statFooter {
   display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  margin-top: 0.5rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.2rem;
+  color: var(--text-muted);
 }
 
 .statValueSmall {
-  font-size: 0.85rem;
-  color: #fff;
+  font-size: 0.8rem;
+  color: var(--text-muted);
   font-weight: 400;
 }
 
+.statValueSmall::after {
+  content: "•";
+  margin-left: 0.5rem;
+  opacity: 0.5;
+}
+
 .statSub {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
 }
 

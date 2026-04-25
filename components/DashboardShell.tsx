@@ -33,16 +33,14 @@ export default function DashboardShell({ children }: { children: React.ReactNode
   const navItems = [
     { id: "hero", label: "Dashboard", icon: LayoutDashboard },
     { id: "projects", label: "Proyectos", icon: Briefcase },
-    { id: "skills", label: "Stack Tech", icon: Cpu },
+    { id: "skills", label: "Stack tech", icon: Cpu },
     { id: "contact", label: "Contacto", icon: Mail },
   ];
 
   return (
     <div className={styles.dashboardWrapper}>
       <header className={styles.topbar}>
-        <div className={styles.logoArea}>
-          <div className={styles.logoIcon} />
-        </div>
+        <div className={styles.navSpacer} /> 
 
         {/* Desktop Navigation */}
         <nav className={styles.desktopNav}>
@@ -59,14 +57,6 @@ export default function DashboardShell({ children }: { children: React.ReactNode
         </nav>
 
         <div className={styles.rightActions}>
-          <div className={styles.userInfo}>
-            <div className={styles.bellContainer}>
-              <Bell size={20} className={styles.bellIcon} />
-              <span className={styles.badge} />
-            </div>
-            <div className={styles.avatar}>V</div>
-          </div>
-          
           <button className={styles.mobileToggle} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -86,10 +76,6 @@ export default function DashboardShell({ children }: { children: React.ReactNode
               <span>{item.label}</span>
             </div>
           ))}
-          <div className={styles.mobileNavLink}>
-            <LogOut size={20} className={styles.icon} />
-            <span>Salir</span>
-          </div>
         </div>
       )}
 
