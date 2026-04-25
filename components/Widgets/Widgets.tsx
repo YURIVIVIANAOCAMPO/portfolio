@@ -80,10 +80,10 @@ export function ProjectsWidget() {
       url: "https://spybee-six.vercel.app"
     },
     {
-      title: "StoreMaster front",
-      tag: "Microservices",
-      image: "/storeMaster.png",
-      url: "https://store-microservices-front.vercel.app/"
+      title: "Oromiel multiparque",
+      tag: "Real Estate",
+      image: "/oromiel.png",
+      url: "https://oromielmultiparque.com"
     }
   ];
 

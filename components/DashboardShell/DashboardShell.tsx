@@ -19,11 +19,9 @@ import { clsx } from "clsx";
 
 export default function DashboardShell({ children }: { children: React.ReactNode }) {
   const [activeTab, setActiveTab] = useState("hero");
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navigateTo = (id: string) => {
     setActiveTab(id);
-    setIsMobileMenuOpen(false);
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -40,10 +38,8 @@ export default function DashboardShell({ children }: { children: React.ReactNode
   return (
     <div className={styles.dashboardWrapper}>
       <header className={styles.topbar}>
-        <div className={styles.navSpacer} /> 
-
-        {/* Desktop Navigation */}
-        <nav className={styles.desktopNav}>
+        {/* Main Navigation */}
+        <nav className={styles.mainNav}>
           {navItems.map((item) => (
             <div 
               key={item.id}
@@ -51,33 +47,13 @@ export default function DashboardShell({ children }: { children: React.ReactNode
               onClick={() => navigateTo(item.id)}
             >
               <item.icon size={18} className={styles.icon} />
-              <span>{item.label}</span>
+              <span className={styles.navLabel}>{item.label}</span>
             </div>
           ))}
         </nav>
-
-        <div className={styles.rightActions}>
-          <button className={styles.mobileToggle} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
       </header>
 
-      {/* Mobile Navigation Menu */}
-      {isMobileMenuOpen && (
-        <div className={styles.mobileNav}>
-          {navItems.map((item) => (
-            <div 
-              key={item.id}
-              className={clsx(styles.mobileNavLink, activeTab === item.id && styles.activeLink)}
-              onClick={() => navigateTo(item.id)}
-            >
-              <item.icon size={20} className={styles.icon} />
-              <span>{item.label}</span>
-            </div>
-          ))}
-        </div>
-      )}
+
 
       {/* Main Content */}
       <main className={styles.mainContent}>

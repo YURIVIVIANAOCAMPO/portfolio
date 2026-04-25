@@ -50,17 +50,17 @@ const projects = [
     }
   },
   {
-    id: "alumbrado",
-    title: "Alumbrado público",
-    type: "Government tech",
-    desc: "Sistema de gestión para el mantenimiento y control del alumbrado público.",
-    context: "Digitalización de reportes y geolocalización de activos.",
-    solution: "Fullstack con Node.js y React, integración con mapas para ubicación de luminarias.",
-    stack: ["TypeScript", "Node.js", "Leaflet", "React"],
-    impact: "Optimización de tiempos de respuesta en mantenimiento ciudadano.",
+    id: "oromiel",
+    title: "Oromiel multiparque",
+    type: "Real Estate & Hospitality",
+    desc: "Plataforma integral para la gestión y promoción de un multiparque ecológico, con integración de servicios y reservas.",
+    context: "Presencia digital y automatización de procesos para un proyecto de gran escala.",
+    solution: "Desarrollo a medida con enfoque en experiencia de usuario y conversión.",
+    stack: ["TypeScript", "Next.js", "Tailwind CSS", "Automation"],
+    impact: "Centralización de la oferta comercial y mejora en la captación de leads.",
     image: "/oromiel.png",
     links: {
-      demo: "https://github.com/YURIVIVIANAOCAMPO/alumbrado_publico_frontend",
+      demo: "https://oromielmultiparque.com",
     }
   }
 ];
@@ -130,7 +130,7 @@ export default function Projects() {
 
               <div className={styles.actionLinks}>
                 <a href={project.links.demo} target="_blank" className={styles.primaryLink}>
-                  {project.id === "products-service" ? "Swagger Products" : "Visitar Demo"} <ExternalLink size={16} />
+                  {project.id === "products-service" ? "Swagger Products" : (project.id === "oromiel" ? "Sitio oficial" : "Visitar Demo")} <ExternalLink size={16} />
                 </a>
                 {project.links.extra && (
                   <a href={project.links.extra} target="_blank" className={styles.primaryLink}>
