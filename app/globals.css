@@ -1,0 +1,110 @@
+:root {
+  --background: #060606;
+  --foreground: #ffffff;
+  --accent: #ff7e20;
+  --accent-glow: rgba(255, 126, 32, 0.4);
+  --accent-muted: rgba(255, 126, 32, 0.08);
+  --surface: rgba(20, 20, 20, 0.5);
+  --surface-border: rgba(255, 255, 255, 0.06);
+  --text-muted: #8e8e93;
+  --gradient-primary: linear-gradient(135deg, #ff7e20 0%, #ff5e3a 100%);
+  --glass: rgba(10, 10, 10, 0.5);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --shadow-premium: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+  --sidebar-width: 260px;
+  --topbar-height: 70px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+ul { list-style: none; }
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  scroll-padding-top: var(--topbar-height);
+}
+
+section {
+  scroll-margin-top: var(--topbar-height);
+}
+
+/* Glass Reflection Layer */
+.glass-reflection {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-reflection::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.03) 45%,
+    rgba(255, 255, 255, 0.05) 50%,
+    transparent 55%
+  );
+  transform: rotate(45deg);
+  pointer-events: none;
+  transition: transform 0.6s ease;
+}
+
+.glass-reflection:hover::after {
+  transform: rotate(45deg) translate(20%, 20%);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Animations */
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 0 0 rgba(255, 126, 32, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 126, 32, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 126, 32, 0); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
