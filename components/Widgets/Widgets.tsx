@@ -1,12 +1,12 @@
 "use client";
 
-import styles from "./DashboardShell.module.css";
+import styles from "../DashboardShell/DashboardShell.module.css";
 import widgetStyles from "./Widgets.module.css";
 import { motion } from "framer-motion";
 import { CheckCircle, ExternalLink, Key, User, ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 import { clsx } from "clsx";
 import Image from "next/image";
-import D3Chart from "./D3Chart";
+import D3Chart from "../D3Chart/D3Chart";
 
 export const containerVariants = {
   hidden: { opacity: 0 },

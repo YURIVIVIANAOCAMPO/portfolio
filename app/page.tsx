@@ -1,6 +1,6 @@
 "use client";
 
-import DashboardShell from "@/components/DashboardShell";
+import DashboardShell from "@/components/DashboardShell/DashboardShell";
 import {
   HeroWidget,
   ProjectsWidget,
@@ -8,15 +8,15 @@ import {
   SkillsWidget,
   ContactWidget,
   containerVariants
-} from "@/components/Widgets";
-import styles from "@/components/DashboardShell.module.css";
+} from "@/components/Widgets/Widgets";
+import styles from "@/components/DashboardShell/DashboardShell.module.css";
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 import { clsx } from "clsx";
 
-import Projects from "@/components/Projects";
-import Skills from "@/components/Skills";
-import Contact from "@/components/Contact";
+import Projects from "@/components/Projects/Projects";
+import Skills from "@/components/Skills/Skills";
+import Contact from "@/components/Contact/Contact";
 
 export default function Home() {
   return (
