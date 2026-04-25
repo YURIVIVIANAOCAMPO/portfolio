@@ -20,7 +20,7 @@ export default function D3Chart({ data, labels, color = "var(--accent)" }: D3Cha
     const updateChart = () => {
       const width = containerRef.current?.clientWidth || 100;
       const height = containerRef.current?.clientHeight || 40;
-      const margin = { top: 15, right: 5, bottom: 20, left: 5 };
+      const margin = { top: 15, right: 15, bottom: 25, left: 15 };
       const innerWidth = width - margin.left - margin.right;
       const innerHeight = height - margin.top - margin.bottom;
 
@@ -112,10 +112,11 @@ export default function D3Chart({ data, labels, color = "var(--accent)" }: D3Cha
           .append("text")
           .attr("class", "x-label")
           .attr("x", (_, i) => (x(i.toString()) || 0) + x.bandwidth() / 2)
-          .attr("y", innerHeight + 12)
+          .attr("y", innerHeight + 18)
           .attr("text-anchor", "middle")
-          .attr("fill", "var(--text-muted)")
+          .attr("fill", "var(--accent)")
           .style("font-size", "8px")
+          .style("font-weight", "400")
           .style("font-family", "var(--font-heading)")
           .text(d => d);
       }

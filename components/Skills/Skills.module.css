@@ -72,3 +72,23 @@
   color: var(--text-muted);
   margin-top: 0.25rem;
 }
+@media (max-width: 768px) {
+  .section {
+    padding: 40px 1rem;
+  }
+  .header h2 {
+    font-size: 2rem;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h2 {
+    font-size: 1.75rem;
+  }
+  .skillCard {
+    padding: 1.5rem;
+  }
+}

@@ -185,3 +185,41 @@
     padding: 2rem;
   }
 }
+
+@media (max-width: 768px) {
+  .section {
+    padding: 40px 1rem;
+  }
+  .header h2 {
+    font-size: 2.2rem;
+  }
+  .projectInfo h4 {
+    font-size: 1.8rem;
+  }
+  .caseStudyGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .projectsGrid {
+    gap: 3rem;
+  }
+  .mainProject {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h2 {
+    font-size: 1.8rem;
+  }
+  .projectInfo h4 {
+    font-size: 1.5rem;
+  }
+  .primaryLink {
+    width: 100%;
+    justify-content: center;
+  }
+  .actionLinks {
+    flex-direction: column;
+  }
+}

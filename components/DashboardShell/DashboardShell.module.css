@@ -208,8 +208,13 @@
   }
 
   .grid {
+    grid-template-columns: 1fr;
     padding: 1rem;
-    gap: 1rem;
+    gap: 1.5rem;
+  }
+
+  .span4, .span8, .span6, .span12 {
+    grid-column: 1 / -1;
   }
 
   .widget {
