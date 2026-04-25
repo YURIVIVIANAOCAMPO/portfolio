@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import styles from "./Skills.module.css";
-import { Layout, Server, Database, Cloud, Search } from "lucide-react";
+import { Layout, Server, Database, Cloud, Search, Target } from "lucide-react";
 
 const skillCategories = [
   {
@@ -30,6 +30,15 @@ const skillCategories = [
       { name: "CKAN & Solr", desc: "Gestión y búsqueda en catálogos de datos" },
       { name: "PostgreSQL & Docker", desc: "Persistencia y entornos contenerizados" },
       { name: "Linux (Ubuntu)", desc: "Configuración y despliegue en servidores" },
+    ]
+  },
+  {
+    title: "Growth & SEM Strategy",
+    icon: <Target className={styles.icon} />,
+    skills: [
+      { name: "Trafficker Especialista", desc: "Meta Ads (Facebook/Instagram) y Google Ads" },
+      { name: "Conversión & ROI", desc: "Optimización de campañas orientada a resultados" },
+      { name: "Tracking Avanzado", desc: "Píxeles, conversiones offline y GTM" },
     ]
   },
   {

@@ -17,6 +17,7 @@ import { clsx } from "clsx";
 import Projects from "@/components/Projects/Projects";
 import Skills from "@/components/Skills/Skills";
 import Contact from "@/components/Contact/Contact";
+import RadarChart from "@/components/RadarChart/RadarChart";
 
 export default function Home() {
   return (
@@ -54,12 +55,22 @@ export default function Home() {
           </div>
 
           {/* Row 2: Skills & Experience BI */}
-          <div id="skills-summary" className={styles.span8}>
+          <div id="skills-summary" className={styles.span7}>
             <SkillsWidget />
           </div>
-          <div id="experience" className={styles.span4}>
+
+          <div id="experience" className={styles.span5}>
             <div className={clsx(styles.widget, styles.fullHeight)}>
               <div className={styles.labelBI}>Fortalezas diferenciales</div>
+              <RadarChart 
+                data={[
+                  { axis: "Frontend", value: 95 },
+                  { axis: "Backend", value: 85 },
+                  { axis: "Datos", value: 90 },
+                  { axis: "Marketing", value: 88 },
+                  { axis: "Estrategia", value: 92 }
+                ]} 
+              />
               <ul style={{ listStyle: 'none', padding: 0, marginTop: '1rem' }}>
                 {[
                   "Combinación frontend + lógica + datos",

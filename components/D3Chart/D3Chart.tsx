@@ -65,7 +65,7 @@ export default function D3Chart({ data, labels, color = "var(--accent)" }: D3Cha
             
           if (tooltipRef.current) {
             tooltipRef.current.style.opacity = "1";
-            tooltipRef.current.innerHTML = `<strong>${d} Commits</strong><br/><span style="font-size:8px">${label || ""}</span>`;
+            tooltipRef.current.innerHTML = `<span style="display:block">${d} Commits</span><span style="font-size:8px;opacity:0.8">${label || ""}</span>`;
             tooltipRef.current.style.left = `${event.offsetX}px`;
             tooltipRef.current.style.top = `${event.offsetY - 35}px`;
           }
@@ -135,16 +135,19 @@ export default function D3Chart({ data, labels, color = "var(--accent)" }: D3Cha
         ref={tooltipRef} 
         style={{ 
           position: 'absolute', 
-          background: 'var(--accent)', 
-          color: '#fff', 
-          padding: '2px 6px', 
-          borderRadius: '4px', 
+          background: 'rgba(15, 15, 15, 0.8)', 
+          border: '1px solid var(--accent)',
+          color: 'var(--accent)', 
+          padding: '4px 8px', 
+          borderRadius: '6px', 
           fontSize: '10px', 
-          fontWeight: 'bold',
+          fontWeight: '400',
           pointerEvents: 'none',
           opacity: 0,
           transition: 'opacity 0.2s ease',
-          zIndex: 10
+          zIndex: 10,
+          backdropFilter: 'blur(4px)',
+          textAlign: 'center'
         }}
       />
       <svg ref={svgRef} style={{ overflow: 'visible', display: 'block' }} />

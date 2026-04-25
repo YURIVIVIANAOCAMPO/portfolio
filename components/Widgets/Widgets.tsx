@@ -3,7 +3,7 @@
 import styles from "../DashboardShell/DashboardShell.module.css";
 import widgetStyles from "./Widgets.module.css";
 import { motion } from "framer-motion";
-import { CheckCircle, ExternalLink, Key, User, ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
+import { CheckCircle, ExternalLink, Key, User, ArrowUpRight, Github, Linkedin, Mail, Layout, Server, Database, Target } from "lucide-react";
 import { clsx } from "clsx";
 import Image from "next/image";
 import D3Chart from "../D3Chart/D3Chart";
@@ -39,16 +39,15 @@ export function TiltWidget({ children, className }: { children: React.ReactNode,
 export function HeroWidget({ className }: { className?: string }) {
   return (
     <TiltWidget className={className}>
-      <div className={widgetStyles.heroContent}>
-        <div className={widgetStyles.labelBI}>PERFIL PROFESIONAL</div>
-        <motion.h1 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          Viviana Ocampo Baracaldo
-        </motion.h1>
-        <h2>Fullstack developer & data strategist</h2>
+      <motion.div 
+        className={widgetStyles.heroContent}
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.2 }}
+      >
+        <div className={styles.labelBI} style={{ color: 'var(--accent)', marginBottom: '0.5rem' }}>Perfil Profesional</div>
+        <h1 className={widgetStyles.heroTitle}>Viviana Ocampo Baracaldo</h1>
+        <h3 className={widgetStyles.heroSubtitle}>Fullstack developer & data strategist</h3>
         <p>Desarrolladora Fullstack orientada a la construcción de soluciones escalables y al aprovechamiento estratégico de los datos. Especialista en transformar necesidades de negocio en productos digitales funcionales, combinando visión técnica, pensamiento estructurado y enfoque en resultados.</p>
         <div className={widgetStyles.kpiGrid}>
           <div className={widgetStyles.kpiItem}>
@@ -60,7 +59,7 @@ export function HeroWidget({ className }: { className?: string }) {
             <span className={widgetStyles.kpiLabel}>Adaptabilidad tech</span>
           </div>
         </div>
-      </div>
+      </motion.div>
     </TiltWidget>
   );
 }
@@ -91,7 +90,6 @@ export function ProjectsWidget() {
     <TiltWidget>
       <div className={styles.widgetHeader}>
         <h3>Casos de éxito</h3>
-        <ArrowUpRight size={18} color="var(--accent)" />
       </div>
       <div className={widgetStyles.projectList}>
         {projects.map(p => (
@@ -133,9 +131,10 @@ export function StatsWidget({ title, value, subText, chart, data, labels }: { ti
 
 export function SkillsWidget() {
   const categories = [
-    { name: "Frontend moderno", items: ["React (Next.js)", "Vue.js (Pinia)", "Angular", "Tailwind/Bootstrap", "Zustand/Redux", "Framer motion", "D3.js"] },
-    { name: "Backend & cloud", items: ["Node.js", "Java (Spring boot)", "FastAPI", "Agentes de IA", "Microservicios", "Docker"] },
-    { name: "Data & integración", items: ["Python", "APIs REST", "CKAN/Solr", "Procesamiento de datos", "Visualización BI"] },
+    { name: "Frontend moderno", items: ["React (Next.js)", "Vue.js", "Angular", "Framer motion", "D3.js"], icon: <Layout size={14} /> },
+    { name: "Backend & cloud", items: ["Node.js", "Spring boot", "FastAPI", "Agentes de IA", "Docker"], icon: <Server size={14} /> },
+    { name: "Datos & BI", items: ["Python", "APIs REST", "CKAN/Solr", "Power BI"], icon: <Database size={14} /> },
+    { name: "Growth & SEM", items: ["Meta Ads", "Google Ads", "ROI Optimization", "GTM Tracking"], icon: <Target size={14} /> },
   ];
 
   return (
@@ -146,7 +145,10 @@ export function SkillsWidget() {
       <div className={widgetStyles.skillGrid}>
         {categories.map(c => (
           <div key={c.name} className={widgetStyles.skillCat}>
-            <h5>{c.name}</h5>
+            <h5>
+              {c.icon}
+              <span style={{ marginLeft: '8px' }}>{c.name}</span>
+            </h5>
             <div className={widgetStyles.skillItems}>
               {c.items.map(i => <span key={i} className={widgetStyles.skillItem}>{i}</span>)}
             </div>

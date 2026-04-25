@@ -184,6 +184,8 @@
 .span8 { grid-column: span 8; }
 .span12 { grid-column: span 12; }
 .span6 { grid-column: span 6; }
+.span7 { grid-column: span 7; }
+.span5 { grid-column: span 5; }
 
 
 
@@ -213,7 +215,7 @@
     gap: 1.5rem;
   }
 
-  .span4, .span8, .span6, .span12 {
+  .span4, .span8, .span6, .span12, .span7, .span5 {
     grid-column: 1 / -1;
   }
 
