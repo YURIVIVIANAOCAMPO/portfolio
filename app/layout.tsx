@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: "Viviana Ocampo Portfolio",
     images: [
       {
-        url: "/porfolio.png",
+        url: "https://d36ukgikzry0f2.cloudfront.net/porfolio.png",
         width: 1200,
         height: 630,
         alt: "Viviana Ocampo Professional Portfolio",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Viviana Ocampo | Fullstack Dev & Data",
     description: "Transformando datos en productos digitales de alto impacto.",
-    images: ["/porfolio.png"],
+    images: ["https://d36ukgikzry0f2.cloudfront.net/porfolio.png"],
   },
   robots: {
     index: true,
